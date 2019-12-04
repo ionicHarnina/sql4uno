@@ -22,7 +22,7 @@ export class DatosService {
     }
   }
 
-  CreateUser(identification: number, name: string, lastname: string) {
+  createUser(identification: number, name: string, lastname: string) {
     return new Promise((resolve, reject) => {
       let sql = "INSERT INTO users (identification, name, lastname) VALUES (?, ?, ?)";
       this.db.executeSql(sql, [identification, name, lastname]).then(
@@ -33,7 +33,7 @@ export class DatosService {
     });
   }
 
-  GetAllUsers() {
+  getAllUsers() {
     return new Promise((resolve, reject) => {
       this.db.executeSql("SELECT * FROM users", []).then((data) => {
         let arrayUsers = [];
@@ -50,8 +50,8 @@ export class DatosService {
         resolve(arrayUsers);
       }, (error) => {
         reject(error);
-      })
-    })
+      });
+    });
   }
 
 }
