@@ -7,10 +7,10 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 export class DatosService {
   db: SQLiteObject;
   isOpen = false;
-
+  
   constructor(public storage: SQLite) {
     if (!this.isOpen) {
-      this.storage = new SQLite();
+      //this.storage = new SQLite();
       const conn = this.storage.create({ name: "data.db", location: "default" });
       if (conn != null) {
         conn.then(
